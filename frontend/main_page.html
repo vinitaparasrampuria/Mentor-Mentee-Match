@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+p{
+  background-color: rgba(26, 175, 234, 0.15);
+  color: black;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+h1{
+  background-color:  rgba(26, 175, 234, 0.15);
+  color: black;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+.bgimg {
+  background-image: url("women2.jpeg");
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+  filter: blur(1px);
+ -webkit-filter: blur(1px);
+}
+
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 16px;
+}
+
+
+.bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+}
+
+.bottomright {
+  position: absolute;
+  bottom: 0;
+  right: 16px;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.button {
+    cursor:pointer;
+    width:100%;
+    border:none;
+    background:#991D57;
+    background-image:linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+    background-image:-moz-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+    background-image:-webkit-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+    color:#FFF;
+    margin:0 0 5px;
+    padding:10px;
+    border-radius:5px;
+    }
+
+    .button:hover {
+    background-image: linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+    background-image:-moz-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+    background-image:-webkit-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+    -webkit-transition:background 0.3s ease-in-out;
+    -moz-transition:background 0.3s ease-in-out;
+    transition:background-color 0.3s ease-in-out;}
+
+    .button:active {
+        background-color: #A82767;
+        box-shadow:inset 0 1px 3px rgba(0,0,0,0.5);
+        transform: translateY(4px);
+    }
+
+hr {
+  margin: auto;
+  width: 40%;
+}
+</style>
+<body>
+
+<div class="bgimg"></div>
+  <div class="topleft">
+    <img src="icon.png" alt="icon" style="float:left;width:100px;height:100px;">
+  </div>
+  <div class="middle">
+    <h1>Dreams don't work unless you do</h1>
+    <hr>
+    <p><b>Navigate career transitions, earn promotions, and plan your long term career with a trusted mentor. Develop the leadership skills and executive presence needed for career growth. Schedule a call now. </b></p>
+    <p><b>Make a self booking or let us choose for you. </b></p>
+       <a class="button" onclick="window.location.href='file:mentor.html';">Choose Your Mentor</a>
+        <a class="button" onclick="window.location.href='file:chatbot.html';">Be my match maker</a>
+
+    </p>
+  </div>
+  <div class="bottomleft">
+    <p style="font-size: 14px;"><b>For better match results, take the test today </b> <a class="button" onclick="window.location.href='file:main_page.html';">Psychometric Test</a></p>
+  </div>
+
+  <div class="bottomright">
+    <p style="font-size: 14px;"><a class="button" onclick="window.location.href='file:end.html';">Need Help? ChatBot Here</a></p>
+  </div>
+
+
+</body>
+</html>

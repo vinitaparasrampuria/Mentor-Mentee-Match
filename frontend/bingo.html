@@ -1,0 +1,308 @@
+<html>
+<head>
+	<title>Getting to Know you</title>
+	
+	<style>
+	body, html {
+         height: 100%;
+         margin: 0;
+         text-align: center;
+    }
+    p {text-align: left;
+        color: white;
+        padding: 8px;
+        font-family: Arial;}
+    div {text-align: center;}
+	td {
+		padding:10px 20px;
+		border-top:1px solid lightgray;
+		border-left:1px solid lightgray;
+		border-bottom:1px solid darkgray;
+		border-right:1px solid darkgray;
+	}
+
+    .bgimg {
+        background-image: url("game.jpg");
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        color: white;
+        font-size: 25px;
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+    }
+
+    .topleft {
+        position: absolute;
+        top: 0;
+        left: 16px;
+    }
+
+    .bottomleft {
+        position: absolute;
+        bottom: 0;
+        left: 16px;
+    }
+
+    .middle {
+        position: absolute;
+        transform: translate(0%, 0%);
+        text-align: center;
+        top: 100px;
+        left: 50px;
+    }
+	.error {
+		background-color:#FF7F7F;
+		color:red;
+		padding:5px;
+		margin:20px 50px;
+		border:1px solid red;
+	}
+	.highlight {
+		background:#abe221;
+	}
+
+	a { 
+		color:green;
+	}
+	td label { 
+		cursor:pointer;
+        color: white;
+        padding: 8px;
+        font-family: Arial;  
+		font-weight: bold;
+	}
+	form { 
+		margin:5px;
+		padding:5px;
+		color:green;
+	}
+
+    .button {
+    cursor:pointer;
+    width:100%;
+    border:none;
+    background:#991D57;
+    background-image:linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+    background-image:-moz-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+    background-image:-webkit-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+    color:#FFF;
+    margin:0 0 5px;
+    padding:10px;
+    border-radius:5px;
+    }
+
+    .button:hover {
+    background-image: linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+    background-image:-moz-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+    background-image:-webkit-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+    -webkit-transition:background 0.3s ease-in-out;
+    -moz-transition:background 0.3s ease-in-out;
+    transition:background-color 0.3s ease-in-out;}
+
+    .button:active {
+        background-color: #A82767;
+        box-shadow:inset 0 1px 3px rgba(0,0,0,0.5);
+        transform: translateY(4px);
+    }
+	</style>
+	
+	<script type="text/javascript">
+	
+	words = [
+		"Agile",
+		"Alignment",
+		"Analytics",
+		"Artifacts", 
+		"Audit Trail", 
+		"Automated", 
+		"Best Practices",
+		"Big Data",
+		"Business Process", 
+		"Cloud", 
+		"Compliance",
+		"Configurable", 
+		"Convergence",
+		"Cross-Platform", 
+		"Data Extractions",
+		"Data Manipulation", 
+		"Data Validation", 
+		"Design Integrity", 
+		"Distributed", 
+		"Enhancements", 
+		"Enterprise", 
+		"Gamification",
+		"Harness", 
+		"High Level",
+		"HTML5",
+		"Impact",
+		"Incentivize",
+		"Industry Standards",
+		"Infrastructure", 
+		"Innovation",
+		"Intellectual capital",
+		"Iterative",
+		"Layered Architecture", 
+		"Leverage", 
+		"Logistics",
+		"Maintenance Cycle", 
+		"Meta Data", 
+		"Methodology",
+		"Multi-tiered", 
+		"Niche",
+		"On-Line", 
+		"Open Source", 
+		"Open Standards", 
+		"Outside the Box",
+		"Paradigm",
+		"Platform", 
+		"Pluggable", 
+		"Proactive",
+		"Project",
+		"Relationship",
+		"Requirement",
+		"Right-sizing",
+		"Road Map", 
+		"SaaS", 
+		"Scalable", 
+		"Service Oriented Architecture", 
+		"Skills transfer",
+		"Solution",
+		"Streamlined",
+		"Synergise", 
+		"Technical",
+		"User Experience",
+		"Utilise", 
+		"Value-added",
+		"Web 2.0", 
+		"Workflow",
+		"XML"
+		];
+		
+	var cells = {};
+		
+	function generate() {
+		var usedWords = [];
+		
+		var node = document.getElementById("grid");
+		
+		if(node.innerHTML && !confirm("Are you sure you want to regenerate?"))
+			return;
+		
+		var html = '<table border="0">';
+		for(var y = 0; y < 5; y++) {
+			html += "<tr>"
+			for(var x = 0; x < 5; x++) {
+				do {
+					var i = Math.round(Math.random() * (words.length - 1));
+					var word = words[i];
+				} while(usedWords.indexOf(word) >= 0);
+				usedWords.push(word);
+				html += '<td id="cell_' + x + '_' + y + '"><label><input id="chk-cell_' + x + '_' + y + '" type="checkbox" onclick="cellClicked(\'cell_' + x + '_' + y + "')\">" + word + "</label></td>";				
+			}
+			html += "</tr>"
+		}
+		html += "</table>";
+		node.innerHTML = html;
+		save("BuzzwordBingo.grid", html);
+		saveGameState();
+	}
+	
+	function supports_html5_storage() {
+	  try {
+	    return 'localStorage' in window && window['localStorage'] !== null;
+	  } catch (e) {
+	    return false;
+	  }
+	}	
+	
+	function cellClicked(id) {
+		var c = document.getElementById("chk-" + id);
+		var d = document.getElementById(id);
+		d.className =(c.checked)?"highlight":"";		
+		saveGameState();
+	}
+	
+	function saveGameState() {
+		for(var y = 0; y < 5; y++) {
+			for(var x = 0; x < 5; x++) {
+				var id = 'cell_' + x + '_' + y;
+				var c = document.getElementById("chk-" + id);
+				save("BuzzwordBingo." + id, c.checked);
+			}
+		}
+	}
+	
+	function loadGameState() {
+		for(var y = 0; y < 5; y++) {
+			for(var x = 0; x < 5; x++) {
+				var id = 'cell_' + x + '_' + y;
+				var c = document.getElementById("chk-" + id);				
+				c.checked = (load("BuzzwordBingo." + id) == 'true');
+				var d = document.getElementById(id);
+				d.className =(c.checked)?"highlight":"";				
+			}
+		}
+	}
+	
+	function toggle(id){
+		var elem = document.getElementById(id);
+		if (elem.style.display == "block")
+			elem.style.display = "none";
+		else
+			elem.style.display = "block";
+	}
+	
+	save = function(key,value){};
+	load = function(key){return null};
+	
+	function start() {
+		if(supports_html5_storage()) {
+			save = function(key, value) {
+				localStorage.setItem(key,value);
+			};
+			load = function(key) {
+				return localStorage.getItem(key);
+			};			
+		} else {
+			alert("Your browser does not support localStorage.\nYou won't be able to persist the Bingo grid.\nUpgrading your browser may help.");
+			return;
+		}
+		
+		var grid = load("BuzzwordBingo.grid");
+		if(grid) {
+			console.log("Loaded a previously generated grid");
+			var node = document.getElementById("grid");
+			node.innerHTML = grid;
+			loadGameState();
+		}
+	}
+	</script>
+</head>
+<body onLoad="start()">
+<div class="bgimg"></div>
+
+<div class="topleft">
+        <img src="icon.png" alt="icon" style="float:left;width:100px;height:100px;"><br>
+        
+</div>
+<div class="middle">
+    <p>Help us get to know you better!</p>
+	<p>Choose 10 blocks which describes you the best. Your selections will help us know you better and find you the perfect Mentor.</p>
+	<p>Please note: If you don't get 10 blocks then click on generate to get a new grid</p>
+        <div id="grid"></div>
+        <form>
+            <input class="button" value="Click here to regenerate the grid" onClick="generate();"/>
+</form>
+</div>
+<div class="bottomleft">
+    <form>
+         <a class="button" onclick="window.location.href='file:Signup_form.html';">Back</a>
+        <a class="button" onclick="window.location.href='file:main_page.html';">Submit</a>
+       
+      </form>
+  </div>
+</body>
+</html>

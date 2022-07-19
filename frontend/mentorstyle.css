@@ -1,0 +1,9 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(B.webp);
+    
+    background-size: auto;
+    background-repeat: repeat;
+    font-family : Verdana,Tahoma, sans-serif;
+}

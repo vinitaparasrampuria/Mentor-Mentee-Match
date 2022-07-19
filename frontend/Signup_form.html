@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Profile Setup Page</title>
+  <link rel="stylesheet" type="text/css" href="quesnstyle.css">
+</head>
+
+<body>
+
+<div id="contact-form">
+    <div>
+      <h1>Welcome to Tech Alpharetta!</h1> 
+      <h4>Let us know you better...</h4> 
+    </div>
+      <p id="failure">Oopsie...message not sent.</p>  
+      <p id="success">Your message was sent successfully. Thank you!</p>
+  
+         <form method="post" action="/">
+        <div>
+            <label for="name">
+              <span class="required">Name: *</span> 
+              <input type="text" id="name" name="name" value="" placeholder="Your Name" required="required" tabindex="1" autofocus="autofocus" />
+            </label> 
+        </div>
+        <div>
+            <label for="email">
+              <span class="required">Email: *</span>
+              <input type="email" id="email" name="email" value="" placeholder="Your Email" tabindex="2" required="required" />
+            </label>  
+        </div>
+        <div>
+          <label for="Date of birth">
+            <span class="required">Date of Birth *</span>
+            <input type="date" id="Date of Birth" name="Date of Birth" value="" placeholder="Your Birth Date" tabindex="3" required="required" />
+          </label>  
+      </div>
+        <div>
+          <label for="phone">
+            <span class="required">Phone: *</span>
+            <input type="number" id="phone" name="phone" value="" placeholder="Your Phone No." tabindex="4" required="required" />
+          </label>  
+      </div>
+      <div>
+        <label for="Address Line 1">
+          <span class="required">Address Line 1 *</span>
+          <input type="text" id="Address1" name="Address1" value="" placeholder="Address Line 1" tabindex="5" required="required" />
+        </label>  
+    </div>
+    <div>
+      <label for="Address Line 2">
+        <span class="required">Address Line 2 *</span>
+        <input type="text" id="Address2" name="Address2" value="" placeholder="Address Line 2" tabindex="5" required="required" />
+      </label>  
+  </div>
+  <div>
+    <label for="Country">
+      <span class="required">Country *</span>
+      <input type="text" id="Country" name="Country" value="" placeholder="Country" tabindex="5" required="required" />
+    </label>  
+</div>
+      <div>
+        <label for="Organization">
+          <span class="required">Organization: *</span>
+          <input type="text" id="organization" name="organization" value="" placeholder="Your Organization" tabindex="4" required="required" />
+        </label>  
+    </div>
+    <div>
+      <label for="Designation">
+        <span class="required">Designation *</span>
+        <input type="text" id="Designation" name="Designation" value="" placeholder="Your Designation" tabindex="6" required="required" />
+      </label>  
+  </div>
+  <div>
+    <label for="Educational Background">
+      <span class="required">Education *</span>
+      <input type="text" id="Education" name="Education" value="" placeholder="Your Qualifications" tabindex="7" required="required" />
+    </label> 
+    <div>
+      <label for="Skills">
+        <span class="required">Skills *</span>
+        <input type="text" id="Skills" name="Skills" value="" placeholder="Your Skills" tabindex="8" required="required" />
+      </label>  
+  </div> 
+</div>
+    <div>
+      <label for="Hobbies">
+        <span class="required">Hobbies *</span>
+        <input type="text" id="hobbies" name="hobby" value="" placeholder="Hobbies" tabindex="9" required="required" />
+      </label>  
+  </div>
+
+  <div>
+    <label for="Places of Travel">
+      <span class="required">Places of Travel *</span>
+      <input type="text" id="Places of travel" name="Travel" value="" placeholder="Places you have travelled" tabindex="9" required="required" />
+    </label>  
+</div>
+
+
+
+        <div>             
+            <label for="subject">
+            <span class="required">Subject: *</span>
+              <select id="subject" name="subject" tabindex="4" required=required>   
+                 <option value="skill development">Skill development</option>
+                 <option value="careet development">Career Development</option>  
+                 <option value="situational advice">Situational advice </option>
+                 <option value="networking">Networking </option>
+                 <option value="comm and soft skills">Communication and soft skills </option>
+                 <option value="leadership">Leadership skills </option>
+                 <option value="personal development">Personal development </option>
+                 <option value="feedbacks">Taking constructive feedbacks</option>
+                 <option value="life advices">Life Advices </option>
+                 <option value="Others">Others </option>
+            
+              </select>
+            </label>
+        </div>
+
+        <div>
+          <label for="If others">
+            <span>If Others, please specify:</span>
+            <input type="text" id="If others" name="If others" value="" placeholder="Other subjects" tabindex="9"/>
+          </label>  
+      </div>
+      <div>
+        <label for="LinkedIn">
+          <span>LinkedIn</span>
+          <input type="url" id="LinkedIn" name="LinkedIn" value="" placeholder="Your LinkedIn Profile" tabindex="9" />
+        </label>  
+    </div>
+    <div>
+      <label for="Instagram">
+        <span>Instagram</span>
+        <input type="url" id="Instagram" name="Instagram" value="" placeholder="Your Instagram Profile" tabindex="9" />
+      </label>  
+  </div>
+
+        <div>             
+            <label for="message">
+              <span class="required">Message: *</span> 
+              <textarea id="message" name="message" placeholder="Please write your message here." tabindex="5" required="required"></textarea> 
+            </label>  
+        </div>
+        <div>              
+          <button type="submit" id="submit" onclick="window.location.href='file:bingo.html';">Next</button>
+        </div>
+         </form>
+  
+    </div>
+    
+    </body>

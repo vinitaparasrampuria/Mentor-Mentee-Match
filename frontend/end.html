@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bgimg {
+  background-image: url("forestbridge.jpeg");
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 16px;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.button {
+    cursor:pointer;
+    width:100%;
+    border:none;
+    background:#991D57;
+    background-image:linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+    background-image:-moz-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+    background-image:-webkit-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+    color:#FFF;
+    margin:0 0 5px;
+    padding:10px;
+    border-radius:5px;
+    }
+
+    .button:hover {
+    background-image: linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+    background-image:-moz-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+    background-image:-webkit-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+    -webkit-transition:background 0.3s ease-in-out;
+    -moz-transition:background 0.3s ease-in-out;
+    transition:background-color 0.3s ease-in-out;}
+
+    .button:active {
+        background-color: #A82767;
+        box-shadow:inset 0 1px 3px rgba(0,0,0,0.5);
+        transform: translateY(4px);
+    }
+
+hr {
+  margin: auto;
+  width: 40%;
+}
+</style>
+<body>
+
+<div class="bgimg">
+  <div class="topleft">
+    <img src="icon.png" alt="icon" style="float:left;width:100px;height:100px;">
+  </div>
+  <div class="middle">
+    <h1>COMING SOON</h1>
+    <hr>
+    <p><b>35 days left</b></p>
+    <p> <button onclick="window.location.href='file:Msgformentor.html';">Back</button></p>
+  </div>
+  <div class="bottomleft">
+    <p>Dreams don't work unless you do!</p>
+  </div>
+</div>
+
+</body>
+</html>
